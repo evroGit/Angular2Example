@@ -14,7 +14,7 @@ export class GlobalService {
       "params": null
     };
     return httpConfig;
-  }
+  };
 
   get url(): string {
     return this._url;
@@ -23,5 +23,10 @@ export class GlobalService {
   set url(value: string) {
     this._url = value;
   }
+
+  public slidePanelHelp = {
+    active: false
+  };
+
 
 }

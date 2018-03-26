@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
             this.isLoading = false;
             this.showLoginError = (this.username !== 'demo' && this.password !== 'demo');
-            if (!this.showLoginError) this.router.navigate(['start']);
+            if (!this.showLoginError) this.router.navigate(['/main/start']);
           }, 1000);
       }
     )

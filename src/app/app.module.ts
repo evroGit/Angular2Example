@@ -25,9 +25,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'start', component: StartComponent},
-  {path: 'client', component: ClientComponent},
-  {path: 'help', component: HelpComponent},
+  {path: 'main', component: MainframeComponent,
+    children:[
+      {path: 'help', component: HelpComponent},
+      {path: 'start', component: StartComponent},
+      {path: 'client', component: ClientComponent}
+    ]
+  },
   {path: '**', redirectTo: 'login'}
 ];
 const routing = RouterModule.forRoot(appRoutes);

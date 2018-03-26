@@ -1,3 +1,45 @@
-<p>
-  navigation works!
-</p>
+<div class="page-left-side navi-wrap wrapper-sm">
+
+  <ul class="nav">
+    <li>
+      <span [translate]="'nav.NAVIGATION'"></span>
+    </li>
+    <li>
+      <a routerLink="/main/start">
+        <i class="fa fa-rocket wrapper-xs"></i>
+        <span class="font-bold" [translate]="'nav.START'"></span>
+      </a>
+    </li>
+    <li>
+      <a (click)="toggleMenu()">
+                <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right" [class.textHide]="!menuClose"></i>
+                    <i class="fa fa-fw fa-angle-down" [class.textHide]="menuClose"></i>
+                </span>
+        <i class="fa fa-user wrapper-xs"></i>
+        <span [translate]="'nav.CLIENT'"></span>
+      </a>
+      <ul class="nav" [class.textHide]="menuClose">
+        <li class="nav-sub">
+          <a routerLink="/main/client">
+            <i class="fa fa-user-plus wrapper-xs"></i>
+            <span [translate]="'nav.CLIENT_CREATE'"></span>
+          </a>
+        </li>
+        <li class="nav-sub">
+          <a routerLink="/main/client">
+            <i class="fa fa-users wrapper-xs"></i>
+            <span [translate]="'nav.CLIENT_LIST'"></span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/main/help">
+        <i class="fa fa-question-circle wrapper-xs"></i>
+        <span [translate]="'nav.HELP'"></span>
+      </a>
+    </li>
+  </ul>
+
+</div>
