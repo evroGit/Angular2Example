@@ -1,0 +1,439 @@
+html,
+body {
+    width:  100% !important;
+    height: 100% !important;
+}
+
+/*wrappers*/
+.wrapper {
+    padding:20px
+}
+.wrapper-xs {
+    padding:5px;
+}
+.wrapper-sm {
+    padding:10px
+}
+.wrapper-b {
+    padding:30px;
+}
+
+.wrapper-external {
+    margin:20px
+}
+.wrapper-external-xs {
+    margin:5px;
+}
+.wrapper-external-sm {
+    margin:10px
+}
+.wrapper-external-b {
+    margin:30px;
+}
+
+/*text size*/
+.text-lg {
+    font-size: 18px;
+}
+.text-md {
+    font-size: 16px;
+}
+.text-base {
+    font-size: 14px;
+}
+.text-sm {
+    font-size: 13px;
+}
+.text-xs {
+    font-size: 12px;
+}
+
+.text-center {
+    text-align:center !important;
+}
+
+.textHide {
+    display: none !important;
+}
+
+.bg-size-contain {
+    background-size: contain !important;
+}
+
+.round {
+    border-radius: 90px !important;
+}
+
+.resetPadding {
+    padding:0 !important;
+}
+
+.loginBody {
+    padding-top:300px;
+    background-position:center top;
+    background-color: #ffffff !important;
+    background-image: url("../img/concept.jpg");
+    background-size: 550px;
+    background-repeat:no-repeat;
+}
+
+.loadingMask {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999 !important;
+    background-image: url("../img/loading.gif");
+    background-size: 50px ;
+    background-color: #676767;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    opacity: 0.50 !important;
+    filter: alpha(opacity=50);
+}
+
+.modalMessage {
+    height: 170px;
+    resize: vertical;
+    text-align: left;
+    line-height: 15px;
+    vertical-align: top;
+}
+
+.header-space {
+    padding-top: 50px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+.app-content {
+    height: 100%;
+}
+
+.app-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background-color: #efefef;
+    border-bottom: 1px solid gray;
+}
+
+.header-right-buttons{
+    float: right !important;
+}
+
+.navi-wrap {
+    background-color: #6293bd;
+    border:2px solid #2e6da4;
+    border-bottom: none;
+    color:#cccccc ;
+}
+
+.navi-wrap a {
+    color: whitesmoke;
+}
+
+.page-left-side:before{
+    content: "";
+    width: inherit;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    background-color: inherit;
+}
+
+/*Navigation menu items styles >>>>>>>>*/
+.page-left-side li.nav-sub {
+    margin-left: 25px;
+    -webkit-transition: all .2s ease-in-out 0s;
+    transition: all .2s ease-in-out 0s;
+}
+
+/*.page-left-side li:active .nav-sub,*/
+.page-left-side li:hover.nav-sub,
+.page-left-side li:focus.nav-sub {
+    margin-left: 30px;
+    height: auto !important;
+}
+
+.flag {
+    float: left;
+    width:  25px;
+    height: 20px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+.flag.flag-deu {
+    background-image: url(../img/icons/flag_deu.png);
+}
+.flag.flag-eng {
+    background-image: url(../img/icons/flag_eng.png);
+}
+
+
+/* fixed outline boreder for buttons*/
+.btn:focus, .btn:active {
+    outline: none !important;
+}
+
+
+.fitBackgroundImage {
+    background-size: contain !important;
+}
+
+.successMessage {
+    padding: 50px !important;
+    background-position: center center;
+    background-color: #ffffff !important;
+    background-image: url(../img/success.png);
+    background-size: 90px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+/*selector for cache start */
+.i-switch {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: #27c24c;
+    margin: 0;
+}
+
+.i-switch input {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.i-switch input:checked + i:before {
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 5px;
+    border-width: 0;
+    border-radius: 5px;
+}
+.i-switch input:checked + i:after {
+    margin-left: 16px;
+}
+.i-switch i:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 30px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.i-switch i:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 18px;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 50%;
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+    -webkit-transition: margin-left 0.3s;
+    transition: margin-left 0.3s;
+}
+/*selector for cache end */
+
+/* Form Validation start*/
+.form-validation .form-control.ng-dirty.ng-invalid {
+    border-color: red !important;
+}
+
+.form-validation .form-control.ng-dirty.ng-valid:focus {
+    border-color: green !important;;
+}
+
+.form-validation .i-checks.ng-invalid.ng-dirty {
+    border-color: red !important;;
+}
+/* Form Validation end*/
+
+/*RESTYLE SITE, IF BROWSER WINDOW GREATER AS 768px also until min.. */
+@media (min-width: 768px) {
+
+    .page-left-side {
+        width: 250px;
+        position: relative;
+        float: left;
+    }
+
+    .app-content,
+    .footer {
+        margin-left: 250px;
+    }
+
+    .header-left-space {
+        width: 250px;
+    }
+}
+/*RESTYLE  SITE, IF BROWSER SMALLER AS 767px, also until max.. - */
+@media  (min-width: 305px) and (max-width: 767px)  {
+    .page-left-side {
+        float: none;
+    }
+
+    .app-content,
+    .footer {
+        margin-left: 0px;
+    }
+
+    .header-left-space {
+        display: none;
+    }
+}
+/*RESTYLE  SITE, IF BROWSER SMALLER AS 304, also until max.. - */
+@media (max-width: 304px) {
+    .header-space {
+        padding-top: 120px;
+    }
+    .header-left-space {
+        display: none;
+    }
+}
+
+.bg-success-custom {
+    background-color: #27cb4d !important;
+    color: #bdefca !important;
+}
+
+.bg-info-custom {
+    background-color: #39b3e0 !important;
+    color: #d1ebf3 !important;
+}
+
+i.animatedIcon {
+    font-size: 14px;
+    color:#337ab7;
+    width: 17px;
+    vertical-align: middle;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    -webkit-transition: font-size .1s;
+    transition: font-size .1s;
+}
+i.animatedIcon:hover {
+    font-size: 18px;
+}
+
+/*slidePanel for help/user  start*/
+.slidePanel {
+    z-index: 1000;
+    position: fixed;
+    top: 50px;
+    right: -240px;
+    width: 240px;
+    -webkit-transition: right 0.2s;
+    transition: right 0.2s;
+}
+.slidePanel.active {
+    right: -1px;
+}
+.slidePanel > .btn {
+    background: #f6f8f8 !important;
+    border-right-width: 0;
+    border-color: #dee5e7;
+    position: absolute;
+    left: -40px;
+    top: 0px;
+    /*top: -1px*/
+    padding: 10px 15px;
+}
+/*slidePanel for help/user end*/
+
+
+/*Help Site start*/
+.helpImage {
+    padding-top: 250px;
+    background-position: center center;
+    background-color: #ffffff !important;
+    background-image: url(../img/concept2.jpg);
+    background-size: contain !important;
+    background-repeat: no-repeat;
+}
+.helpIcon {
+    height: 60px;
+}
+.helpIcon:hover {
+    font-size:2em !important;
+    -webkit-transition: all .1s ease-in-out 0s;
+    transition: all .1s ease-in-out 0s;
+}
+
+.helpQuestions.ng-enter,
+.tableRowSlowAppearance.ng-enter {
+    -webkit-transition:opacity 0.2s;
+    transition:opacity 0.2s;
+    opacity: 0.1;
+}
+.helpQuestions.ng-enter-active,
+.tableRowSlowAppearance.ng-enter-active {
+    opacity: 1;
+}
+
+.helpQuestions.ng-leave,
+.tableRowSlowAppearance.ng-leave{
+    -webkit-transition:opacity 0.2s;
+    transition:opacity 0.2s;
+    opacity: 1;
+}
+.helpQuestions.ng-leave-active,
+.tableRowSlowAppearance.ng-leave-active {
+    opacity: 0.1;
+}
+/*Help Site end*/
+
+
+.myListTabs>.nav {
+    margin-bottom: -2px;
+}
+.myListTabs.nav-tabs {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.myListTabs>.nav-tabs>li.active>a,
+.myListTabs>.nav-tabs.nav-justified>li.active>a {
+    background-color: #f5f5f5 !important;
+    border-bottom:0 !important;
+}
+
+.myListTabs>.nav-tabs>li,
+.myListTabs>.nav-tabs.nav-justified>li {
+    width: auto !important;
+    z-index: 1 !important;
+}
+
+/*.nav-tabs.nav-justified > .active > a,*/
+/*.nav-tabs.nav-justified > .active > a:hover,*/
+/*.nav-tabs.nav-justified > .active > a:focus {*/
+    /*border-bottom-color: #f5f5f5;*/
+/*}*/
+
+.clientProfile {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+

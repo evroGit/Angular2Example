@@ -1,0 +1,76 @@
+﻿{
+  "page": {
+    "HELP_TITLE_TEXT": "Hilfe",
+    "HELP_PAGE_TEXT":  "Hilfe Text",
+    "SAVE": "Speichern",
+    "EDIT": "Bearbeiten",
+    "DELETE":"Löschen",
+    "SEARCH":"Search",
+    "OK":"Ok",
+    "CANCEL":"Abbruch",
+    "PLEASE_SELECT":"Bitte wählen",
+    "SUCCESS":"Erfolgreich",
+    "ERROR":"Fehler",
+    "WARNING":"Achtung",
+    "DELETE_DATA_QUESTION":"Möchten Sie die Daten wiklich löschen?"
+  },
+  "user": {
+    "SEND_MESSAGE": "Nachricht schreiben"
+  },
+  "header": {
+    "FEEDBACK": "Support anschreiben",
+    "LANGUAGE": "Sprache wählen"
+  },
+  "feedback": {
+    "FEEDBACK": "Support anschreiben",
+    "SUBJECT": "Thema",
+    "BODY": "Nachricht"
+  },
+  "login": {
+    "LOGIN": "Anmeldung",
+    "USERNAME": "Username",
+    "PASSWORD": "Passwort",
+    "LOGIN_FAILED": "Anmeldung fehlgeschlagen"
+  },
+  "start": {
+    "START_TITLE1":"Willkommen",
+    "START_BODY1":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec ligula nunc. Donec ullamcorper velit at mi placerat, at ullamcorper risus maximus. Suspendisse imperdiet vulputate turpis sit amet feugiat. In congue rutrum justo ac vehicula. Aliquam pellentesque tristique pharetra.",
+    "START_TITLE2":"Erste Schritte",
+    "START_BODY2":"Curabitur et pulvinar massa. Morbi convallis risus in placerat lacinia. Maecenas viverra elit id nibh volutpat venenatis. Nulla fringilla felis eu elit imperdiet, et maximus orci tincidunt."
+  },
+  "nav": {
+    "NAVIGATION":"Navigation",
+    "START": "Start",
+    "CLIENT": "Kunde",
+    "CLIENT_CREATE": "Kunden anlegen",
+    "CLIENT_LIST": "Kundenliste",
+    "HELP": "Hilfe"
+  },
+  "client": {
+    "CLIENT_CREATE": "Kunden anlegen",
+    "CLIENT_EDIT": "Kunden bearbeiten",
+    "CLIENT_LIST": "Kundenlilste",
+    "CLIENT_DATA": "Daten",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "EMAIL": "E-Mail",
+    "CACHE_ON": "Cache an ",
+    "CACHE_OFF":"Cache aus"
+  },
+  "help": {
+    "FAQ":"FAQ",
+    "HOTLINE_BODY_TELEFON": "Telefon: (555) 555-555-555",
+    "QUESTIONS": {
+      "1":"1. Vestibulum mollis erat augue, efficitur pulvinar felis gravida non",
+      "2":"2. Sed vel varius turpis. Nam eleifend lobortis feugiat.",
+      "3":"3. Curabitur id est dictum, iaculis dui a, bibendum dolor.",
+      "4":"4. Morbi lectus dolor, sodales vitae turpis in, sollicitudin luctus lorem.",
+      "5":"5. Donec massa dolor, rutrum sollicitudin sodales eget, mollis at orci."
+    },
+    "HOTLINE": "Information",
+    "FAQ_BODY":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Etiam vitae ipsum eget sem venenatis euismod quis eu ante. Etiam in velit porta, faucibus diam vel, cursus eros. Nam metus eros, scelerisque sit amet fringilla vel, aliquam at ligula. Etiam varius at arcu et varius. Vestibulum sollicitudin risus quis dapibus finibus. Quisque quam turpis, bibendum id est sit amet, imperdiet elementum ligula. Praesent interdum erat ultricies nibh auctor iaculis."
+  },
+  "footer":{
+    "FOOTER":"&copy; Footer &amp; Co."
+  }
+}
