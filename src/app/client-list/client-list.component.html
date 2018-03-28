@@ -1,0 +1,87 @@
+<div class="col-md-12" style="display: inline-block">
+
+  <tabset justified="true" class="myListTabs">
+
+    <tab heading="{{'client.CLIENT_LIST'|translate}}" customClass="text-muted" >
+
+      <div class="col-md-12 resetPadding" appLoadingMask [loadingMask]="clientListLoading">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            &nbsp; <!--placeholder for heading-->
+            <label class="i-switch pull-right">
+              <input type="checkbox" [(ngModel)]="site.isCacheOn">
+              <i></i>
+            </label>
+            <span *ngIf="site.isCacheOn"
+                  style="margin-right: 10px;font-size: 13px;"
+                  class="badge bg-success-custom pull-right" [translate]="'client.CACHE_ON'"></span>
+            <span *ngIf="!site.isCacheOn"
+                  style="margin-right: 10px;font-size: 13px;"
+                  class="badge bg-info-custom  pull-right" [translate]="'client.CACHE_OFF'"></span>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <div class="input-group">
+                <!--search start-->
+                <input type="text" class="form-control"
+                       [(ngModel)]="searchClient"
+                       placeholder="{{'page.SEARCH'|translate}}">
+                <span class="input-group-btn">
+                     <button class="btn btn-default">
+                         <i class="fa fa-search"></i>
+                     </button>
+                  </span>
+              </div>
+
+              <app-table [tableStyle]="'table-striped table-hover'" [clientData]="clientListArr" appLoadingMask=""> </app-table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+
+    <!--<tab heading = "{{tab.tabTitle}}" ng-repeat="tab in tabList" active={{tab.active}}>-->
+        <!--<span class="h4 wrapper-xs text-muted"></span>-->
+        <!--<a ng-click="deleteTab($index)" href>-->
+          <!--<i class="fa fa-times"></i>-->
+        <!--</a>-->
+      <!--&lt;!&ndash;<profile client="clientObj"></profile>&ndash;&gt;-->
+
+      <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">-->
+          <!--<span class="h4 text-muted">{{tab.data.firstname}} {{tab.data.lastname}}</span>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+          <!--<img [src]="tab.data.image" height="120" class="wrapper-external-sm pull-left">-->
+          <!--<div class="wrapper-b pull-left">-->
+            <!--<div class="col-md-12">-->
+              <!--<div class="col-md-4">-->
+                <!--<span class="clientProfile" [translate]="'client.FIRST_NAME'"></span>-->
+              <!--</div>-->
+              <!--<div class="col-md-8">-->
+                <!--<span class="clientProfile text-danger">{{tab.data.firstname}}</span>-->
+              <!--</div>-->
+              <!--<div class="col-md-4">-->
+                <!--<span class="clientProfile" [translate]="'client.LAST_NAME'"></span>-->
+              <!--</div>-->
+              <!--<div class="col-md-8">-->
+                <!--<span class="clientProfile text-danger">{{tab.data.lastname}}</span>-->
+              <!--</div>-->
+              <!--<div class="col-md-4">-->
+                <!--<span class="clientProfile" [translate]="'client.EMAIL'"></span>-->
+              <!--</div>-->
+              <!--<div class="col-md-8">-->
+                <!--<span class="clientProfile text-danger">{{tab.data.email}}</span>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</tab>-->
+  </tabset>
+
+</div>
