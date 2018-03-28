@@ -5,6 +5,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TabsModule } from 'ngx-bootstrap';
+
 import {AppComponent} from './app.component';
 import {GlobalService} from './global.service';
 import {LoginServiceService} from "./login/login-service";
@@ -13,10 +15,14 @@ import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
 import {HelpComponent} from './help/help.component';
 import {ClientComponent} from './client/client.component';
-import { HeaderComponent } from './main/header/header.component';
-import { NavigationComponent } from './main/navigation/navigation.component';
-import { FooterComponent } from './main/footer/footer.component';
-import { MainframeComponent } from './main/mainframe/mainframe.component';
+import {HeaderComponent} from './main/header/header.component';
+import {NavigationComponent} from './main/navigation/navigation.component';
+import {FooterComponent} from './main/footer/footer.component';
+import {MainframeComponent} from './main/mainframe/mainframe.component';
+import {ClientListComponent} from './client-list/client-list.component';
+import {ClientCreateComponent } from './client-create/client-create.component';
+import { TableComponent } from './utils/components/table/table.component';
+import {ClientServiceService} from "./client-list/client-service.service";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,13 +31,17 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'main', component: MainframeComponent,
-    children:[
-      {path: 'help', component: HelpComponent},
+  {
+    path: 'main', component: MainframeComponent,
+    children: [
+      {path: '', pathMatch: 'full', redirectTo: 'start'},
       {path: 'start', component: StartComponent},
-      {path: 'client', component: ClientComponent}
+      {path: 'clientCreate', component: ClientCreateComponent},
+      {path: 'clientList', component: ClientListComponent},
+      {path: 'help', component: HelpComponent}
     ]
   },
+  {path: 'main', redirectTo: '/start', pathMatch: 'full'},
   {path: '**', redirectTo: 'login'}
 ];
 const routing = RouterModule.forRoot(appRoutes);
@@ -48,6 +58,9 @@ const routing = RouterModule.forRoot(appRoutes);
     NavigationComponent,
     FooterComponent,
     MainframeComponent,
+    ClientListComponent,
+    ClientCreateComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,11 +73,13 @@ const routing = RouterModule.forRoot(appRoutes);
         deps: [HttpClient]
       }
     }),
-    FormsModule
+    FormsModule,
+    TabsModule.forRoot()
   ],
   providers: [
     GlobalService,
-    LoginServiceService
+    LoginServiceService,
+    ClientServiceService
   ],
   bootstrap: [AppComponent]
 })
