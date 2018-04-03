@@ -1,25 +1,28 @@
-<div class="container" style="width: 400px; height: 300px">
-  <div class="text-center">
-    <strong [translate]="'login.LOGIN'"></strong>
+<div class="wrapper-b container loginBody">
+  <div class="container" style="width: 400px; height: 300px">
+    <div class="text-center">
+      <strong [translate]="'login.LOGIN'"></strong>
+    </div>
+
+    <form class="form-group form-validation" #loginForm="ngForm" (ngSubmit)="login()" appLoadingMask
+          [loadingMask]="isLoading">
+      <div class="wrapper-sm text-center" *ngIf="showLoginError">
+        <label [translate]="'login.LOGIN_FAILED'" class="alert-danger"></label>
+      </div>
+
+      <div class="list-group">
+        <div class="list-group-item">
+          <label [translate]="'login.USERNAME'"></label>
+          <input type="text" class="form-control" [(ngModel)]="username" name="username" required>
+        </div>
+        <div class="list-group-item">
+          <label [translate]="'login.PASSWORD'"></label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block round" [disabled]="!loginForm.valid" type="submit">
+        <span [translate]="'login.LOGIN'"></span>
+      </button>
+    </form>
   </div>
-
-  <form class="form-group form-validation" #loginForm="ngForm" (ngSubmit)="login()" appLoadingMask [loadingMask]="isLoading">
-    <div class="wrapper-sm text-center" *ngIf="showLoginError">
-      <label [translate]="'login.LOGIN_FAILED'" class="alert-danger"></label>
-    </div>
-
-    <div class="list-group">
-      <div class="list-group-item">
-        <label [translate]="'login.USERNAME'"></label>
-        <input type="text" class="form-control" [(ngModel)]="username" name="username" required>
-      </div>
-      <div class="list-group-item">
-        <label [translate]="'login.PASSWORD'"></label>
-        <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
-      </div>
-    </div>
-    <button class="btn btn-primary btn-block round" [disabled]="!loginForm.valid" type="submit">
-      <span [translate]="'login.LOGIN'"></span>
-    </button>
-  </form>
 </div>

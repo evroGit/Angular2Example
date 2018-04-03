@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {LoginServiceService} from "./login-service";
+import {LoginService} from "./login-service";
 
 @Component({
   selector: 'app-login',
@@ -10,10 +10,10 @@ import {LoginServiceService} from "./login-service";
 export class LoginComponent implements OnInit {
   showLoginError: boolean = false;
   isLoading:boolean  = false;
-  username: string = '';
-  password: string = '';
+  username: string = 'demo';
+  password: string = 'demo';
 
-  constructor(private router:Router, private loginService:LoginServiceService) {}
+  constructor(private router:Router, private loginService:LoginService) {}
 
   ngOnInit() {}
 
@@ -23,11 +23,15 @@ export class LoginComponent implements OnInit {
       (data) => {
         setTimeout(() => {
             this.isLoading = false;
-            this.showLoginError = (this.username !== 'demo' && this.password !== 'demo');
-            if (!this.showLoginError) this.router.navigate(['/main/start']);
+            this.showLoginError = false;
+            this.router.navigate(['/main/start']);
           }, 1000);
+      },
+      (error) => {
+        this.isLoading = false;
+        this.showLoginError = true;
       }
-    )
+    );
   }
 
 
