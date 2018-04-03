@@ -33,8 +33,25 @@
                   </span>
               </div>
 
-              <app-table [tableStyle]="'table-striped table-hover'" [clientData]="clientListArr" appLoadingMask=""> </app-table>
+              <app-table
+                [tableStyle]="'table-striped table-hover'"
+                [tableData]="clientListArr"
+                [totalCount]="totalCount"
+                (deleteItem)="onDeleteClick($event, modalTemplate)"
+                (editItem)="onEditClick($event)">
+              </app-table>
 
+              <ng-template #modalTemplate>
+                <div class="modal-body text-center">
+                  <p [translate]="'page.DELETE_DATA_QUESTION'"></p>
+                  <button type="button" class="btn btn-default" (click)="ok()" >
+                    <span [translate]="'page.OK'"></span>
+                  </button>
+                  <button type="button" class="btn btn-primary" (click)="cancel()" >
+                    <span [translate]="'page.CANCEL'"></span>
+                  </button>
+                </div>
+              </ng-template>
 
             </div>
           </div>
@@ -47,7 +64,7 @@
         <!--<a ng-click="deleteTab($index)" href>-->
           <!--<i class="fa fa-times"></i>-->
         <!--</a>-->
-      <!--&lt;!&ndash;<profile client="clientObj"></profile>&ndash;&gt;-->
+      <!--&lt;!&ndash;<profile item="clientObj"></profile>&ndash;&gt;-->
 
       <!--<div class="panel panel-default">-->
         <!--<div class="panel-heading">-->
@@ -58,19 +75,19 @@
           <!--<div class="wrapper-b pull-left">-->
             <!--<div class="col-md-12">-->
               <!--<div class="col-md-4">-->
-                <!--<span class="clientProfile" [translate]="'client.FIRST_NAME'"></span>-->
+                <!--<span class="clientProfile" [translate]="'item.FIRST_NAME'"></span>-->
               <!--</div>-->
               <!--<div class="col-md-8">-->
                 <!--<span class="clientProfile text-danger">{{tab.data.firstname}}</span>-->
               <!--</div>-->
               <!--<div class="col-md-4">-->
-                <!--<span class="clientProfile" [translate]="'client.LAST_NAME'"></span>-->
+                <!--<span class="clientProfile" [translate]="'item.LAST_NAME'"></span>-->
               <!--</div>-->
               <!--<div class="col-md-8">-->
                 <!--<span class="clientProfile text-danger">{{tab.data.lastname}}</span>-->
               <!--</div>-->
               <!--<div class="col-md-4">-->
-                <!--<span class="clientProfile" [translate]="'client.EMAIL'"></span>-->
+                <!--<span class="clientProfile" [translate]="'item.EMAIL'"></span>-->
               <!--</div>-->
               <!--<div class="col-md-8">-->
                 <!--<span class="clientProfile text-danger">{{tab.data.email}}</span>-->

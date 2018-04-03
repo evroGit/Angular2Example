@@ -5,13 +5,15 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { TabsModule } from 'ngx-bootstrap';
+import {TabsModule} from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
 
 import {AppComponent} from './app.component';
 import {GlobalService} from './global.service';
-import {LoginServiceService} from "./login/login-service";
+import {LoginService} from "./login/login-service";
 import {LoadingMaskDirective} from './loading-mask.directive';
 import {LoginComponent} from './login/login.component';
+import {LogoutService} from './login/logout.service';
 import {StartComponent} from './start/start.component';
 import {HelpComponent} from './help/help.component';
 import {ClientComponent} from './client/client.component';
@@ -20,9 +22,12 @@ import {NavigationComponent} from './main/navigation/navigation.component';
 import {FooterComponent} from './main/footer/footer.component';
 import {MainframeComponent} from './main/mainframe/mainframe.component';
 import {ClientListComponent} from './client-list/client-list.component';
-import {ClientCreateComponent } from './client-create/client-create.component';
-import { TableComponent } from './utils/components/table/table.component';
+import {ClientCreateComponent} from './client-create/client-create.component';
+import {TableComponent} from './utils/components/table/table.component';
 import {ClientServiceService} from "./client-list/client-service.service";
+import {UserService} from "./login/user.service";
+import {LoginGuard} from "./login/login.guard";
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {
-    path: 'main', component: MainframeComponent,
+    path: 'main', component: MainframeComponent, canActivate: [LoginGuard],
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'start'},
       {path: 'start', component: StartComponent},
@@ -74,12 +79,16 @@ const routing = RouterModule.forRoot(appRoutes);
       }
     }),
     FormsModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     GlobalService,
-    LoginServiceService,
-    ClientServiceService
+    LoginService,
+    LogoutService,
+    ClientServiceService,
+    UserService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
