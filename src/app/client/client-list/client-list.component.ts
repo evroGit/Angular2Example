@@ -3,8 +3,9 @@ import {ClientServiceService} from './client-service.service';
 import {Subscription} from "rxjs/Subscription";
 import {BsModalService} from "ngx-bootstrap/modal";
 import {BsModalRef} from "ngx-bootstrap/modal";
-import {ok} from "assert";
 import "rxjs/add/operator/take";
+import {ExchangeService} from "../../exchange.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-client-list',
@@ -20,7 +21,10 @@ export class ClientListComponent implements OnInit {
   clientListArr: any [] = [];
   totalCount: number = 0;
 
-  constructor(private clientService: ClientServiceService, private ngxModalService:BsModalService) {
+  constructor(private clientService: ClientServiceService,
+              private ngxModalService: BsModalService,
+              private router:Router,
+              private exchangeService: ExchangeService) {
   }
 
   ngOnInit() {
@@ -51,25 +55,18 @@ export class ClientListComponent implements OnInit {
 
   }
 
-  onEditClick(client: any) {
-    // exchangeService.setEditMode(true);
-    // exchangeService.setExchangeObject(item);
-    // $state.go("app.clientEdit");
-  }
-
-
-  ok(){
+  ok() {
     this.ngxModalService.setDismissReason("ok");
     this.modalRef.hide();
   }
 
-  cancel () {
+  cancel() {
     this.ngxModalService.setDismissReason("cancel");
     this.modalRef.hide();
   }
 
 
-  onDeleteClick (client: any, template: TemplateRef<any>) {
+  onDeleteClick(client: any, template: TemplateRef<any>) {
     //helper function to find index for deleting client
     let tmpClientIndex = ((clientId) => {
       if (clientId) {
@@ -82,41 +79,24 @@ export class ClientListComponent implements OnInit {
     })(client["id"]);
 
     this.modalRef = this.ngxModalService.show(template, {class: 'modal-sm'});
+
+    //if modal opens, thens subscribe, take first and unsubscribe
     this.ngxModalService.onHide.take(1).subscribe((reason: string) => {
       if (reason === 'ok') {
-        if (tmpClientIndex !==null) {
+        if (tmpClientIndex !== null) {
           this.clientListArr.splice(Number(tmpClientIndex), 1);
           this.getClientList();
         }
       }
     });
-
-
-
-
-
-
-
-    // modalMessageService.showModalMessage(
-    //   "page.WARNING",
-    //   "page.DELETE_DATA_QUESTION",
-    //   "",
-    //   null,
-    //   {showCancel: true},
-    //   function () {
-    //     let tmpClientIndex = ((clientId) => {
-    //       if (clientId) {
-    //         for (let i in this.clientListArr)
-    //           if (this.clientListArr[i].id === clientId) { return i }
-    //       }
-    //       return null;
-    //     })(item["id"]);
-    //
-    //     this.clientListArr.splice(tmpClientIndex, 1);
-    //     this.getClientList();
-    //   }
-    // );
   };
+
+
+  onEditClick(client: any) {
+    this.exchangeService.setExchangeObject(client);
+    this.exchangeService.setEditMode(true);
+    this.router.navigate(['main/clientEdit']);
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

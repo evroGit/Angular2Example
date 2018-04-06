@@ -1,0 +1,63 @@
+<div class="col-md-12" style="display: inline-block">
+
+  <tabset justified="true" class="myListTabs">
+
+    <tab heading="{{'client.CLIENT_LIST'|translate}}" customClass="text-muted" >
+
+      <div class="col-md-12 resetPadding" appLoadingMask [loadingMask]="clientListLoading">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            &nbsp; <!--placeholder for heading-->
+            <label class="i-switch pull-right">
+              <input type="checkbox" [(ngModel)]="site.isCacheOn">
+              <i></i>
+            </label>
+            <span *ngIf="site.isCacheOn"
+                  style="margin-right: 10px;font-size: 13px;"
+                  class="badge bg-success-custom pull-right" [translate]="'client.CACHE_ON'"></span>
+            <span *ngIf="!site.isCacheOn"
+                  style="margin-right: 10px;font-size: 13px;"
+                  class="badge bg-info-custom  pull-right" [translate]="'client.CACHE_OFF'"></span>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <div class="input-group">
+                <!--search start-->
+                <input type="text" class="form-control"
+                       [(ngModel)]="searchClient"
+                       placeholder="{{'page.SEARCH'|translate}}">
+                <span class="input-group-btn">
+                     <button class="btn btn-default">
+                         <i class="fa fa-search"></i>
+                     </button>
+                  </span>
+              </div>
+
+              <app-table
+                [tableStyle]="'table-striped table-hover'"
+                [tableData]="clientListArr"
+                [totalCount]="totalCount"
+                (deleteItem)="onDeleteClick($event, modalTemplate)"
+                (editItem)="onEditClick($event)">
+              </app-table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+  </tabset>
+</div>
+
+<!--modal window template-->
+<ng-template #modalTemplate>
+  <div class="modal-body text-center">
+    <p [translate]="'page.DELETE_DATA_QUESTION'"></p>
+    <button type="button" class="btn btn-default" (click)="ok()" >
+      <span [translate]="'page.OK'"></span>
+    </button>
+    <button type="button" class="btn btn-primary" (click)="cancel()" >
+      <span [translate]="'page.CANCEL'"></span>
+    </button>
+  </div>
+</ng-template>
