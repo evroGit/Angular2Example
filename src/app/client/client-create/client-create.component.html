@@ -1,7 +1,7 @@
 <div class="col-md-12" appLoadingMask [loadingMask]="">
   <div class="wrapper-xs">
-    <h1 *ngIf="!editClient.id" [translate]="'client.CLIENT_CREATE'" class="h3 text-info"></h1>
-    <h1 *ngIf="editClient.id" [translate]="'client.CLIENT_EDIT'" class="h3 text-info"></h1>
+    <h1 *ngIf="!editMode" [translate]="'client.CLIENT_CREATE'" class="h3 text-info"></h1>
+    <h1 *ngIf="editMode" [translate]="'client.CLIENT_EDIT'" class="h3 text-info"></h1>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -29,11 +29,19 @@
 
       <button type="submit" class="btn btn-success"
               [disabled]="clientCreateForm.invalid"
-              (click)="onSaveClick()">
+              (click)="onSaveClick(modalTemplate)">
         <i class="fa fa-check"></i>
         <span [translate]="'page.SAVE'"></span>
       </button>
 
+
     </div>
   </div>
 </div>
+
+<!--modal window template-->
+<ng-template #modalTemplate>
+  <div class="modal-body text-center">
+    <div class="successMessage"></div>
+  </div>
+</ng-template>
