@@ -10,23 +10,25 @@ import { ModalModule } from 'ngx-bootstrap';
 
 import {AppComponent} from './app.component';
 import {GlobalService} from './global.service';
-import {LoginService} from "./login/login-service";
 import {LoadingMaskDirective} from './loading-mask.directive';
 import {LoginComponent} from './login/login.component';
+import {LoginService} from "./login/login-service";
+import {UserService} from "./login/user.service";
 import {LogoutService} from './login/logout.service';
 import {StartComponent} from './start/start.component';
 import {HelpComponent} from './help/help.component';
-import {ClientComponent} from './client/client.component';
 import {HeaderComponent} from './main/header/header.component';
 import {NavigationComponent} from './main/navigation/navigation.component';
 import {FooterComponent} from './main/footer/footer.component';
 import {MainframeComponent} from './main/mainframe/mainframe.component';
-import {ClientListComponent} from './client-list/client-list.component';
-import {ClientCreateComponent} from './client-create/client-create.component';
+import {ClientComponent} from './client/client.component';
+import {ClientListComponent} from './client/client-list/client-list.component';
+import {ClientServiceService} from "./client/client-list/client-service.service";
+import {ClientCreateComponent} from './client/client-create/client-create.component';
 import {TableComponent} from './utils/components/table/table.component';
-import {ClientServiceService} from "./client-list/client-service.service";
-import {UserService} from "./login/user.service";
 import {LoginGuard} from "./login/login.guard";
+import {ExchangeService} from './exchange.service';
+
 
 
 // AoT requires an exported function for factories
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
       {path: '', pathMatch: 'full', redirectTo: 'start'},
       {path: 'start', component: StartComponent},
       {path: 'clientCreate', component: ClientCreateComponent},
+      {path: 'clientEdit', component: ClientCreateComponent},
       {path: 'clientList', component: ClientListComponent},
       {path: 'help', component: HelpComponent}
     ]
@@ -88,7 +91,8 @@ const routing = RouterModule.forRoot(appRoutes);
     LogoutService,
     ClientServiceService,
     UserService,
-    LoginGuard
+    LoginGuard,
+    ExchangeService
   ],
   bootstrap: [AppComponent]
 })
