@@ -39,7 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {
-    path: 'main', component: MainframeComponent, canActivate: [LoginGuard],
+    path: 'main', component: MainframeComponent, canActivateChild: [LoginGuard],
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'start'},
       {path: 'start', component: StartComponent},

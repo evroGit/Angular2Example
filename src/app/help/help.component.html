@@ -8,8 +8,7 @@
 
     <!--slidePanelHelp  example start -->
     <div class="slidePanel" style="top: 245px;" [class.active]="globalService.slidePanelHelp.active">
-      <button class="btn"
-              (click)="globalService.slidePanelHelp.active = !globalService.slidePanelHelp.active">
+      <button class="btn" (click)="globalService.slidePanelHelp.active = !globalService.slidePanelHelp.active">
         <i class="fa fa-phone text-md"></i><!--<i class="fa fa-gear"></i>-->
       </button>
       <div class="panel panel-default">
@@ -57,15 +56,9 @@
           <!--search end -->
 
           <span style="display: block" class="wrapper-xs" [translate]="'help.FAQ_BODY'"></span>
-          <!--<span ng-repeat="item in questionsList|filter:searchText"-->
-          <!--style="display: block"-->
-          <!--class="wrapper-xs helpQuestions">-->
-
-          <!--<span class="helpIcon">-->
-          <!--<i class="fa fa-question-circle"></i>-->
-          <!--{{item|translate}}-->
-          <!--</span>-->
-          <!--</span>-->
+          <div *ngFor="let item of questionsList" style="display: block" class="wrapper-xs helpQuestions">
+            <span class="helpIcon"><i class="fa fa-question-circle"></i>{{item |translate}}</span>
+          </div>
         </div>
       </div>
     </div>

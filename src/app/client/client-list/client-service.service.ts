@@ -9,8 +9,7 @@ export class ClientServiceService {
   }
 
   getList(page) {
-
-    this.httpConfig.url = 'assets/mocks/clientList.json';
-        return this.http.get(this.httpConfig.url);
+    let url =this.httpConfig.url + '/assets/mocks/clientList.json';
+    return this.http.get(url);
   }
 }

@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <span href class="btn navbar-btn" (click)="onFeedbackClick()">
+  <span href class="btn navbar-btn" (click)="onFeedbackClick(supportTemplate)">
     <i class="fa fa-cogs animatedIcon"></i>
     <span class="text-muted" [translate]="'header.FEEDBACK'"></span>
 </span>
@@ -35,10 +35,10 @@
       <!--</ul>-->
     </span>
 
-    <span href class="btn navbar-btn" (click)="slidePanel.active = !slidePanel.active">
-        <i class="fa fa-user-o animatedIcon"></i>
+    <!--<span href class="btn navbar-btn" (click)="slidePanel.active = !slidePanel.active">-->
+        <!--<i class="fa fa-user-o animatedIcon"></i>-->
       <!--<span class="text-muted"> {{userData.username}} </span>-->
-    </span>
+    <!--</span>-->
 
     <a class="btn navbar-btn navbar-btn " (click)="onLogoutClick()">
       <i class="fa fa-sign-out animatedIcon"></i>
@@ -46,3 +46,26 @@
   </div>
 
 </div>
+
+<!--modal window template-->
+<ng-template #supportTemplate>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">
+      <span [translate]="'feedback.FEEDBACK'"></span>
+    </h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <label [translate]="'feedback.SUBJECT'"></label>
+    <input type="text" class="form-control" name="subject" ng-model="feedback.subject">
+    <label [translate]="'feedback.BODY'"></label>
+    <textarea class="form-control modalMessage" name="body" [(ngModel)]="feedback.body"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" (click)="ok()" [disabled]="feedback.body.length<3">
+      <span [translate]="'page.OK'"></span>
+    </button>
+    <button class="btn btn-warning" (click)="cancel()">
+      <span [translate]="'page.CANCEL'"></span>
+    </button>
+  </div>
+</ng-template>

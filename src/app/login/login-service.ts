@@ -12,7 +12,8 @@ export class LoginService {
   }
 
   login(username: string, password: string) {
-    return this.http.get(this.config.url + '/assets/mocks/login-response.json').map(
+    let url = this.config.url + '/assets/mocks/login-response.json';
+    return this.http.get(url).map(
       (response) => {
         if (username === 'demo' && password === 'demo') {
           this.user.setUser(response);
